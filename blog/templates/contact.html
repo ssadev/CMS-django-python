@@ -1,0 +1,142 @@
+
+{% extends 'layout.html' %}
+{% block content %}<!-- end header -->
+
+
+   <!-- content
+   ================================================== -->
+   <section id="content-wrap" class="site-page">
+   	<div class="row">
+   		<div class="col-twelve">
+
+   			<section>  
+
+   				<div class="content-media">
+						<div id="map-wrap">
+			   			<div id="map-container">
+
+<!--iframe width="100%" height="100%" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Paniara%2C%20Panchla+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/map-my-route/">Draw map route</a></iframe-->
+
+</div>
+					      <div id="map-zoom-in"></div>
+							<div id="map-zoom-out"></div>
+			   		</div>  
+					</div>
+
+					<div class="primary-content">
+
+						<h1 class="entry-title add-bottom">Get In Touch With Us.</h1>	
+
+						<p class="lead">Lorem ipsum Deserunt est dolore Ut Excepteur nulla occaecat magna occaecat Excepteur nisi esse veniam dolor consectetur minim qui nisi esse deserunt commodo ea enim ullamco non voluptate consectetur minim aliquip Ut incididunt amet ut cupidatat.</p> 
+
+						<p>Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.</p>
+
+						<div class="row">
+							<div class="col-six tab-full">
+								<h4>Where to Find Us</h4>
+
+					  			<p>
+					         1600 Amphitheatre Parkway<br>
+					         Mountain View, CA<br>
+					         94043 US
+					         </p>
+
+							</div>
+
+							<div class="col-six tab-full">
+								<h4>Contact Info</h4>
+
+				   			<p>someone@abstractwebsite.com<br>
+							   	info@abstractwebsite.com <br>
+							   	Phone: (+63) 555 1212			     
+							   </p>
+
+							</div>
+
+						</div>
+
+						<form name="cForm" id="cForm" method="post" action="#">{% csrf_token %}
+	  					   <fieldset>
+
+	                     <div class="form-field">
+	  						      <input name="cName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
+	                     </div>
+
+	                     <div class="form-field">
+	  						      <input name="cEmail" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
+	                     </div>
+
+	                     <div class="form-field">
+	  						      <input name="cWebsite" type="text" id="cWebsite" class="full-width" placeholder="Website"  value="">
+	                     </div>
+
+	                     <div class="message form-field">
+	                        <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message" ></textarea>
+	                     </div>
+
+	                     <button type="submit" class="submit button-primary full-width-on-mobile">Submit</button>
+
+	  					   </fieldset>
+  				      </form> <!-- end form -->
+
+
+<!-- ######### From.Ajax Script #### -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
+
+
+<script>
+
+$("#cForm").on("submit", function(){
+
+$.ajax({
+url: '/contact/form-submit',
+type: 'POST',
+data: $(this).serialize(),
+success: function(data){
+
+swal("Thanks You So Much !"+data, "We will get your response early", "success");
+
+},
+error: function(e){
+swal("Sorry !", "Something wrong here", "error");
+
+}
+
+});
+
+return false;
+//alert("Submitted");
+
+
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+<!-- End Of from Ajax Script -->
+
+
+
+
+
+				</section>
+   		
+
+			</div> <!-- end col-twelve -->
+   	</div> <!-- end row -->		
+   </section> <!-- end content -->
+
+   
+   <!-- footer
+   ================================================== -->
+
+{% endblock %}

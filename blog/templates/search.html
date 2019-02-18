@@ -8,6 +8,9 @@
 
    <section id="bricks">
 
+<h3 style="margin-left: 25px;" >Search Result : {{ totalresult }}</h3>
+
+
    	<div class="row masonry">
 
    		<!-- brick-wrapper -->
@@ -15,82 +18,10 @@
 
          	<div class="grid-sizer"></div>
 
-         	<div class="brick entry featured-grid animate-this">
-         		<div class="entry-content">
-         			<div id="featured-post-slider" class="flexslider">
-			   			<ul class="slides">
 
-				   			
-
-
-
-{% for slider in trend %}
-{% if slider.type == 'Public' %}
-
-
-
-<li>
-				   				<div class="featured-post-slide">
-
-						   			<div class="post-background" style="background-image:url('{{ slider.thumbnail }}');"></div>
-
-								   	<div class="overlay"></div>			   		
-
-								   	<div class="post-content">
-								   		<ul class="entry-meta">
-												<li>{{ slider.date }}</li>
-												<li><a href="#" >Naruto Uzumaki</a></li>				
-											</ul>	
-
-								   		<h1 class="slide-title"><a href="/blog/{{ slider.id }}/{{ slider.title|slugify }}" title="">{{ slider.title }}</a></h1> 
-								   	</div> 				   					  
-				   			
-				   				</div>
-				   			</li> <!-- /slide -->
-
-
-
-{% endif %}
-{% endfor %}
-
-
-
-
-
-
-
-
-
-
-
-
-<li>
-				   				<div class="featured-post-slide">
-
-						   			<div class="post-background" style="background-image:url('http://bit.ly/2V1irW3');"></div>
-
-								   	<div class="overlay"></div>			   		
-
-								   	<div class="post-content">
-								   		<ul class="entry-meta">
-												<li>August 27, 2016</li>
-												<li><a href="#" class="author">Naruto Uzumaki</a></li>					
-											</ul>	
-
-								   		<h1 class="slide-title"><a href="#" title="">This Is a Static Post Slider</a></h1>
-						   			</div>
-
-				   				</div>
-				   			</li> <!-- end slide -->
-
-				   		</ul> <!-- end slides -->
-				   	</div> <!-- end featured-post-slider -->        			
-         		</div> <!-- end entry content -->         		
-         	</div>
-
-
-{% for post in data %}
+{% for post in result %}
  {% if post.type == 'Public' %}
+
 <article class="brick entry format-gallery group animate-this">
 
                <div class="entry-thumb">
@@ -180,15 +111,16 @@
    		
    		<nav class="pagination">
 		      <span class="page-numbers prev inactive">Prev</span>
-{% for num in data.paginator.page_range %}
 
-	<span class="page-numbers current">{{ num }}</span>
+{% for num in result.paginator.page_range %}
+		   	<a href="{{ request.get_full_path }}&p={{ num }}" class="page-numbers">{{ num }}</a>
 
+{% endfor %}
 		      <!--a href="#" class="page-numbers">3</a-->
 
 		   	<a href="#" class="page-numbers next">Next</a>
 	      </nav>
-{% endfor %}
+
    	</div>
 
    </section> <!-- end bricks -->

@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from datetime import datetime, date
 # Create your models here.
 
 
@@ -24,4 +24,20 @@ class Menu(models.Model):
 class Social(models.Model):
  name = models.CharField(max_length=10)
  link = models.URLField()
+
+
+class Comments(models.Model):
+ name = models.CharField(max_length=10)
+ email = models.CharField(max_length=10)
+ website = models.CharField(max_length=10)
+ comment = models.TextField()
+ datetime = models.DateTimeField(default=datetime.now)
+ postId = models.IntegerField()
+
+ def __str__(self):
+  return self.name
+ class Meta:
+   verbose_name_plural = "Comments"
+
+
 

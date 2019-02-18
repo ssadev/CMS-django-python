@@ -14,8 +14,13 @@ Password: **type same password
 # Some features:
 * you can add your social media links dynamically
 * Dynamic menu. you can add your own menu-item with their url(kind a like WordPress)
+* Commen in post
+* contact us form with full Functionality
+
 * mode features in next update (happy coding)
 
 
-<img src="https://i.ibb.co/BsBp2hB/Screenshot-2019-02-16-16-50-50.png" alt="Home Page Demo" border="0">
+<img 
+src="https://bit.ly/2GuBvZz" 
+alt="Home Page Demo" border="0">
 
